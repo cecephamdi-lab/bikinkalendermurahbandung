@@ -119,10 +119,10 @@
     
     <div class="page-container">
         <div id="welcomeScreen" class="page">
-             <div class="welcome-header"><h1 class="main-title">KALENDER MURAH BANDUNG</h1><p class="motto">solusi mahal bikin kalender murah</p></div>
-             <div class="datetime-container"><div id="clockDisplay" class="clock-display"></div><div id="gregorianDateDisplay" class="date-display"></div><div id="hijriDateDisplay" class="date-display hijri-date"></div></div>
-             <div id="prayerTimesContainer" class="prayer-times-container" style="display: none;"><h3>Jadwal Sholat</h3><div class="prayer-times"><div class="prayer-time"><div class="name">Subuh</div><div class="time" id="fajrTime">-:-</div></div><div class="prayer-time"><div class="name">Dzuhur</div><div class="time" id="dhuhrTime">-:-</div></div><div class="prayer-time"><div class="name">Ashar</div><div class="time" id="asrTime">-:-</div></div><div class="prayer-time"><div class="name">Maghrib</div><div class="time" id="maghribTime">-:-</div></div><div class="prayer-time"><div class="name">Isya</div><div class="time" id="ishaTime">-:-</div></div></div><div id="locationDisplay"></div></div>
-             <div class="welcome-buttons">
+            <div class="welcome-header"><h1 class="main-title">KALENDER MURAH BANDUNG</h1><p class="motto">solusi mahal bikin kalender murah</p></div>
+            <div class="datetime-container"><div id="clockDisplay" class="clock-display"></div><div id="gregorianDateDisplay" class="date-display"></div><div id="hijriDateDisplay" class="date-display hijri-date"></div></div>
+            <div id="prayerTimesContainer" class="prayer-times-container" style="display: none;"><h3>Jadwal Sholat</h3><div class="prayer-times"><div class="prayer-time"><div class="name">Subuh</div><div class="time" id="fajrTime">-:-</div></div><div class="prayer-time"><div class="name">Dzuhur</div><div class="time" id="dhuhrTime">-:-</div></div><div class="prayer-time"><div class="name">Ashar</div><div class="time" id="asrTime">-:-</div></div><div class="prayer-time"><div class="name">Maghrib</div><div class="time" id="maghribTime">-:-</div></div><div class="prayer-time"><div class="name">Isya</div><div class="time" id="ishaTime">-:-</div></div></div><div id="locationDisplay"></div></div>
+            <div class="welcome-buttons">
                 <button id="returnToDashboardBtn" class="hidden">Kembali ke Dasbor</button>
                 <button id="adminBtn">Admin</button>
                 <button id="pelangganBtn">Pelanggan</button>
@@ -159,139 +159,592 @@
         <div id="settingKeuntunganPage" class="page hidden"><div class="content-wrapper"><div class="content-container"><div class="header-nav"><button class="back-btn" title="Kembali"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button><h1>Setting Keuntungan</h1></div><form id="settingKeuntunganForm"><div class="form-group"><label for="profitPercentageInput">Persentase Keuntungan (%)</label><input type="number" id="profitPercentageInput" placeholder="Contoh: 90"></div><button type="submit" class="btn-save">Simpan</button></form></div></div></div>
         <div id="rekapanPage" class="page hidden"><div class="content-wrapper"><div class="content-container"><div class="header-nav"><button class="back-btn" title="Kembali"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button><h1>Rekapan Order</h1></div><div class="import-container"><h3>Import Order dari Teks WA</h3><div class="form-group"><textarea id="waOrderText" placeholder="Salin & tempel seluruh teks pesanan dari WhatsApp di sini..."></textarea></div><button id="importOrderBtn" class="btn-save" style="background: linear-gradient(45deg, #8e44ad, #9b59b6);">Import Order</button></div><div id="rekapSummary"></div><div style="overflow-x:auto;"><table class="rekap-table"><thead><tr><th>Nama</th><th>No. WA</th><th>Alamat</th><th>Status</th><th>Tagihan</th><th>Dibayar</th><th>Sisa</th><th>Untung</th><th>Aksi</th></tr></thead><tbody id="rekapTableBody"></tbody></table></div></div></div></div>
         <div id="biayaProduksiPage" class="page hidden"><div class="content-wrapper"><div class="content-container"><div class="header-nav"><button class="back-btn" title="Kembali"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg></button><h1>Biaya Produksi</h1></div>
-            <form id="biayaProduksiForm">
-                <h3>Update Pembayaran ke Percetakan</h3>
-                <div class="form-group">
-                    <label for="projectSelect">Pilih Proyek</label>
-                    <select id="projectSelect" required></select>
-                </div>
-                <div class="form-group">
-                    <label>Total Biaya Proyek (Otomatis)</label>
-                    <div id="biayaProduksiTotalDisplay">-</div>
-                </div>
-                <div class="form-group">
-                    <label for="jumlahBayarProduksi">Jumlah Telah Dibayar (Rp)</label>
-                    <input type="number" id="jumlahBayarProduksi" placeholder="Contoh: 1000000" required>
-                </div>
-                <button type="submit" class="btn-save">Simpan Pembayaran</button>
-            </form>
-            <hr style="border-color:#56708d;margin:40px 0;"><h2 style="margin-top:0;">Rekapan Biaya</h2><div style="overflow-x:auto;"><table class="rekap-table"><thead><tr><th>Proyek</th><th>Total Biaya</th><th>Telah Bayar</th><th>Sisa Utang</th><th>Status</th></tr></thead><tbody id="biayaProduksiTableBody"></tbody></table></div></div></div></div>
+                <form id="biayaProduksiForm">
+                    <h3>Update Pembayaran ke Percetakan</h3>
+                    <div class="form-group">
+                        <label for="projectSelect">Pilih Proyek</label>
+                        <select id="projectSelect" required></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Total Biaya Proyek (Otomatis)</label>
+                        <div id="biayaProduksiTotalDisplay">-</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="jumlahBayarProduksi">Jumlah Telah Dibayar (Rp)</label>
+                        <input type="number" id="jumlahBayarProduksi" placeholder="Contoh: 1000000" required>
+                    </div>
+                    <button type="submit" class="btn-save">Simpan Pembayaran</button>
+                </form>
+                <hr style="border-color:#56708d;margin:40px 0;"><h2 style="margin-top:0;">Rekapan Biaya</h2><div style="overflow-x:auto;"><table class="rekap-table"><thead><tr><th>Proyek</th><th>Total Biaya</th><th>Telah Bayar</th><th>Sisa Utang</th><th>Status</th></tr></thead><tbody id="biayaProduksiTableBody"></tbody></table></div></div></div></div>
     </div>
     
     <div id="loginModal" class="modal-overlay"><div class="login-box"><h2>Login Admin</h2><form id="loginForm"><div class="input-group"><input type="text" id="usernameInput" placeholder="Username" required></div><div class="input-group"><input type="password" id="passwordInput" placeholder="Password" required></div><div class="login-buttons"><button type="button" id="loginCancelBtn">Batal</button><button type="submit" id="loginSubmitBtn">Login</button></div></form></div></div>
     <div id="lightbox" class="modal-overlay hidden" onclick="this.classList.add('hidden')"><img id="lightboxImage" src="" alt="Tampilan diperbesar"></div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        // --- DEFAULTS & INITIALIZATION ---
-        const defaultDataHarga={kertas:{"AP 120 gram":.219,"AP 150 gram":.268,"AP 230 gram":.402},ukuranCetak:{"31x48":3e5,"48x53":48e4,"44x64":6e5},dimensi:{"31x48":{l:31,p:48},"48x53":{l:48,p:53},"44x64":{l:44,p:64}},finishing:{jepit:17,ring:156},lainLain:{susun:50}};const defaultProfitPercentage=90;let dataHarga,profitPercentage,orderList,biayaProduksiList,galleryItems;
-        function initializeData(){const savedData=localStorage.getItem("savedDataHarga"),savedProfit=localStorage.getItem("savedProfitPercentage"),savedOrders=localStorage.getItem("orderList"),savedBiayaProduksi=localStorage.getItem("biayaProduksiList"),savedGallery=localStorage.getItem('galleryItems');dataHarga=savedData?JSON.parse(savedData):defaultDataHarga;profitPercentage=savedProfit?parseFloat(savedProfit):defaultProfitPercentage;orderList=savedOrders?JSON.parse(savedOrders):[];biayaProduksiList=savedBiayaProduksi?JSON.parse(savedBiayaProduksi):[];galleryItems=savedGallery?JSON.parse(savedGallery):[];localStorage.setItem("savedDataHarga",JSON.stringify(dataHarga));localStorage.setItem("savedProfitPercentage",profitPercentage);}
-        initializeData();
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- DEFAULTS & INITIALIZATION ---
+            const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwvPqaYeQR7-IuVXI-iz9LMVAHGE4WnCb75y4ikPev777Xifcq_UpVnQm60T92vGtQpiw/exec';
+            
+            let dataHarga, profitPercentage, orderList, biayaProduksiList, galleryItems;
+            let userRole = "admin", currentPage = null, hasilKalkulasi = null, grandTotalAsliCache;
 
-        const pages={welcome:document.getElementById("welcomeScreen"),pelangganDashboard:document.getElementById("pelangganDashboardPage"),gallery:document.getElementById("galleryPage"),adminDashboard:document.getElementById("adminDashboardPage"),calculator:document.getElementById("calculatorPage"),updateHarga:document.getElementById("updateHargaPage"),settingKeuntungan:document.getElementById("settingKeuntunganPage"),rekapan:document.getElementById("rekapanPage"),biayaProduksi:document.getElementById("biayaProduksiPage"),galleryManagement:document.getElementById("galleryManagementPage")};
-        const loginModal=document.getElementById("loginModal");let userRole="admin",currentPage=pages.welcome,hasilKalkulasi=null,grandTotalAsliCache;
-
-        const clockDisplay=document.getElementById("clockDisplay"),gregorianDateDisplay=document.getElementById("gregorianDateDisplay"),hijriDateDisplay=document.getElementById("hijriDateDisplay"),prayerTimesContainer=document.getElementById("prayerTimesContainer");function updateDateTime(){const now=new Date;clockDisplay.textContent=now.toLocaleTimeString("id-ID",{hour12:!1});gregorianDateDisplay.textContent=now.toLocaleDateString("id-ID",{weekday:"long",year:"numeric",month:"long",day:"numeric"});hijriDateDisplay.textContent=(new Intl.DateTimeFormat("id-ID-u-ca-islamic",{day:"numeric",month:"long",year:"numeric"})).format(now)}setInterval(updateDateTime,1e3);updateDateTime();function getPrayerTimes(latitude,longitude){const date=new Date,year=date.getFullYear(),month=date.getMonth()+1,apiUrl=`https://api.aladhan.com/v1/calendar/${year}/${month}?latitude=${latitude}&longitude=${longitude}&method=20`;fetch(apiUrl).then(response=>response.json()).then(data=>{const todayTimings=data.data[date.getDate()-1].timings;document.getElementById("fajrTime").textContent=todayTimings.Fajr;document.getElementById("dhuhrTime").textContent=todayTimings.Dhuhr;document.getElementById("asrTime").textContent=todayTimings.Asr;document.getElementById("maghribTime").textContent=todayTimings.Maghrib;document.getElementById("ishaTime").textContent=todayTimings.Isha;prayerTimesContainer.style.display="block"}).catch(error=>{console.error("Gagal mengambil jadwal sholat:",error);document.getElementById("locationDisplay").textContent="Gagal memuat jadwal sholat."})}function getLocation(){navigator.geolocation?navigator.geolocation.getCurrentPosition(position=>{const lat=position.coords.latitude,long=position.coords.longitude;document.getElementById("locationDisplay").textContent="Jadwal untuk lokasi Anda";getPrayerTimes(lat,long)},()=>{document.getElementById("locationDisplay").textContent="Izinkan akses lokasi untuk melihat jadwal sholat.";prayerTimesContainer.style.display="block"}):document.getElementById("locationDisplay").textContent="Browser tidak mendukung geolokasi."}getLocation();
-
-        // --- NAVIGATION LOGIC ---
-        let currentHistoryState={page:"welcome"};history.replaceState(currentHistoryState,"","#welcome");function transitionPages(pageOut,pageIn){currentPage=pageIn;pageIn.classList.remove("hidden");pageOut.classList.add("animate-fade-out");pageIn.classList.add("animate-fade-in");pageOut.addEventListener("animationend",function handler(){pageOut.classList.add("hidden");pageOut.classList.remove("animate-fade-out");pageOut.removeEventListener("animationend",handler)});pageIn.addEventListener("animationend",function handler(){pageIn.classList.remove("animate-fade-in");pageIn.removeEventListener("animationend",handler)})}
-        function navigateTo(state){const pageOut=currentPage,pageIn=pages[state.page];if(pageOut!==pageIn){transitionPages(pageOut,pageIn)}history.pushState(state,"",`#${state.page}`);currentHistoryState=state}
-        window.addEventListener("popstate",e=>{if(e.state){const pageToShow=pages[e.state.page];if(pageToShow){Object.values(pages).forEach(p=>p.classList.add("hidden"));pageToShow.classList.remove("hidden");currentPage=pageToShow;currentHistoryState=e.state;checkLoginState()}}});
-        window.addEventListener("keydown",e=>{const activeEl=document.activeElement;"Backspace"===e.key&&"INPUT"!==activeEl.tagName&&"SELECT"!==activeEl.tagName&&"TEXTAREA"!==activeEl.tagName&&(e.preventDefault(),history.back())});
-        
-        const returnToDashboardBtn = document.getElementById('returnToDashboardBtn');
-        function checkLoginState() { if (sessionStorage.getItem('isAdminLoggedIn') === 'true') { returnToDashboardBtn.classList.remove('hidden'); } else { returnToDashboardBtn.classList.add('hidden'); } }
-        document.getElementById("adminBtn").addEventListener("click",()=>loginModal.classList.add("visible"));
-        document.getElementById("pelangganBtn").addEventListener("click",()=>navigateTo({page:"pelangganDashboard"}));
-        document.getElementById("loginCancelBtn").addEventListener("click",()=>loginModal.classList.remove("visible"));
-        document.getElementById("loginForm").addEventListener("submit",e=>{e.preventDefault();if("hamdi"===document.getElementById("usernameInput").value.toLowerCase()&&"P@dl4n"===document.getElementById("passwordInput").value){sessionStorage.setItem('isAdminLoggedIn', 'true');loginModal.classList.remove("visible");document.getElementById("usernameInput").value="";document.getElementById("passwordInput").value="";checkLoginState();navigateTo({page:"adminDashboard"})}else{const loginBox=document.querySelector(".login-box");loginBox.classList.add("shake");setTimeout(()=>loginBox.classList.remove("shake"),500)}});
-        document.getElementById('logoutBtn').addEventListener('click', () => { sessionStorage.removeItem('isAdminLoggedIn'); checkLoginState(); navigateTo({ page: 'welcome' }); });
-        document.getElementById('returnToDashboardBtn').addEventListener('click', () => navigateTo({ page: 'adminDashboard' }));
-        document.getElementById('goToCalcPelangganBtn').addEventListener('click',()=>{userRole='pelanggan';document.getElementById('calculatorTitle').textContent='Kalkulator Harga Kalender';document.getElementById('saveOrderBtn').style.display='none';navigateTo({page:"calculator",role:"pelanggan"});});
-        document.getElementById('goToGalleryBtn').addEventListener('click',()=>{renderCustomerGallery();navigateTo({page:"gallery"});});
-        document.getElementById("goToCalcAdminBtn").addEventListener("click",()=>{userRole="admin";document.getElementById("calculatorTitle").textContent="Kalkulator Admin";navigateTo({page:"calculator",role:"admin"})});
-        document.getElementById("goToRekapanBtn").addEventListener("click",()=>{populateRekapanTable();navigateTo({page:"rekapan"})});
-        document.getElementById("goToBiayaProduksiBtn").addEventListener("click",()=>{renderBiayaProduksiPage();navigateTo({page:"biayaProduksi"})});
-        document.getElementById("goToGalleryManagementBtn").addEventListener("click",()=>{renderGalleryManagement();navigateTo({page:"galleryManagement"})});
-        document.getElementById("goToUpdateHargaBtn").addEventListener("click",()=>{populateUpdateHargaForm();navigateTo({page:"updateHarga"})});
-        document.getElementById("goToSettingUntungBtn").addEventListener("click",()=>{document.getElementById("profitPercentageInput").value=profitPercentage;navigateTo({page:"settingKeuntungan"})});
-        document.querySelectorAll(".back-btn").forEach(btn=>{btn.addEventListener("click",()=>{history.back()})});
-        checkLoginState();
-
-        const formatRupiah=angka=>new Intl.NumberFormat("id-ID",{style:"currency",currency:"IDR",minimumFractionDigits:0}).format(angka);
-        
-        // --- FUNGSI HALAMAN UPDATE HARGA ---
-        function populateUpdateHargaForm(){const form=document.getElementById("updateHargaForm");let html="<h3>Harga Kertas (per cm²)</h3>";for(const k in dataHarga.kertas)html+=`<div class="form-group"><label for="k_${k}">${k}</label><input type="number" step="0.001" id="k_${k}" value="${dataHarga.kertas[k]}"></div>`;html+="<h3>Harga Cetak (per 2000 lbr)</h3>";for(const k in dataHarga.ukuranCetak)html+=`<div class="form-group"><label for="c_${k}">Ukuran ${k}</label><input type="number" id="c_${k}" value="${dataHarga.ukuranCetak[k]}"></div>`;html+="<h3>Harga Finishing (per cm lebar)</h3>";for(const k in dataHarga.finishing)html+=`<div class="form-group"><label for="f_${k}">${k}</label><input type="number" id="f_${k}" value="${dataHarga.finishing[k]}"></div>`;html+="<h3>Harga Lain-lain (per pcs)</h3>";html+=`<div class="form-group"><label for="ll_susun">Harga Susun</label><input type="number" id="ll_susun" value="${dataHarga.lainLain.susun}"></div>`;html+='<button type="submit" class="btn-save">Simpan Perubahan</button>';form.innerHTML=html}
-        document.getElementById("updateHargaForm").addEventListener("submit",e=>{e.preventDefault();for(const k in dataHarga.kertas)dataHarga.kertas[k]=parseFloat(document.getElementById(`k_${k}`).value);for(const k in dataHarga.ukuranCetak)dataHarga.ukuranCetak[k]=parseInt(document.getElementById(`c_${k}`).value);for(const k in dataHarga.finishing)dataHarga.finishing[k]=parseFloat(document.getElementById(`f_${k}`).value);dataHarga.lainLain.susun=parseInt(document.getElementById("ll_susun").value);localStorage.setItem("savedDataHarga",JSON.stringify(dataHarga));alert("Harga berhasil disimpan!")});
-        
-        // --- FUNGSI HALAMAN SETTING KEUNTUNGAN ---
-        document.getElementById("settingKeuntunganForm").addEventListener("submit",e=>{e.preventDefault();profitPercentage=parseFloat(document.getElementById("profitPercentageInput").value);localStorage.setItem("savedProfitPercentage",profitPercentage);alert("Persentase keuntungan berhasil disimpan!")});
-        
-        // --- FUNGSI HALAMAN GALERI ---
-        const lightbox=document.getElementById("lightbox"),lightboxImage=document.getElementById("lightboxImage");function renderCustomerGallery(){const grid=document.getElementById("galleryGrid");grid.innerHTML="";if(0===galleryItems.length){grid.innerHTML="<p>Belum ada desain di galeri.</p>"}galleryItems.forEach(item=>{grid.innerHTML+=`<div class="gallery-item" data-url="${item.url}"><img src="${item.url}" alt="${item.title}"><p>${item.title}</p></div>`})}
-        document.getElementById("galleryGrid").addEventListener("click",e=>{const item=e.target.closest(".gallery-item");if(item){lightboxImage.src=item.dataset.url;lightbox.classList.remove("hidden")}});
-        function renderGalleryManagement(){const list=document.getElementById("galleryManagementList");list.innerHTML="";if(0===galleryItems.length){list.innerHTML="<p>Belum ada desain di galeri.</p>"}galleryItems.forEach((item,index)=>{list.innerHTML+=`<div class="gallery-item"><img src="${item.url}" alt="${item.title}"><div class="gallery-item-footer"><p>${item.title}</p><button class="delete-gallery-item-btn" data-index="${index}">Hapus</button></div></div>`})}
-        document.getElementById("addGalleryItemForm").addEventListener("submit",e=>{e.preventDefault();const fileInput=document.getElementById("galleryItemFile"),title=document.getElementById("galleryItemTitle").value,file=fileInput.files[0];if(file&&title){const reader=new FileReader;reader.onload=function(event){const imageUrl=event.target.result;galleryItems.push({url:imageUrl,title:title});try{localStorage.setItem("galleryItems",JSON.stringify(galleryItems));alert("Desain berhasil ditambahkan!");e.target.reset();renderGalleryManagement()}catch(error){alert("Gagal menyimpan! Penyimpanan browser mungkin sudah penuh.");galleryItems.pop()}};reader.readAsDataURL(file)}});
-        document.getElementById("galleryManagementList").addEventListener("click",e=>{if(e.target.classList.contains("delete-gallery-item-btn")){if(confirm("Yakin ingin menghapus desain ini?")){const index=parseInt(e.target.dataset.index);galleryItems.splice(index,1);localStorage.setItem("galleryItems",JSON.stringify(galleryItems));renderGalleryManagement()}}});
-        
-        // --- FUNGSI KALKULATOR & ORDER ---
-        const calculateBtn=document.getElementById("calculateBtn"),saveOrderBtn=document.getElementById("saveOrderBtn"),printBtn=document.getElementById("printBtn"),whatsappBtn=document.getElementById("whatsappBtn");printBtn.disabled=!0;whatsappBtn.disabled=!0;saveOrderBtn.disabled=!0;const inputs=document.querySelectorAll(".form-input");inputs.forEach(input=>{input.addEventListener("input",()=>{printBtn.disabled=!0;whatsappBtn.disabled=!0;saveOrderBtn.disabled=!0;hasilKalkulasi=null})});
-        calculateBtn.addEventListener("click",()=>{const nama=document.getElementById("nama").value,nomorWa=document.getElementById("nomorWa").value,alamat=document.getElementById("alamat").value,ukuran=document.getElementById("ukuran").value,jumlahPcs=parseInt(document.getElementById("jumlahPcs").value)||0,jumlahHalaman=parseInt(document.getElementById("jumlahHalaman").value)||0,jenisKertas=document.getElementById("jenisKertas").value,jenisFinishing=document.getElementById("jenisFinishing").value;if(!ukuran||jumlahPcs<=0||jumlahHalaman<=0||!jenisKertas){alert("Mohon lengkapi data!");return}const dimensi=dataHarga.dimensi[ukuran],hargaCetak=dataHarga.ukuranCetak[ukuran],hargaKertasPerCm2=dataHarga.kertas[jenisKertas];let biayaFinishingSatuan="polos"!==jenisFinishing?dimensi.l*dataHarga.finishing[jenisFinishing]:0;const totalLembar=jumlahPcs*jumlahHalaman,totalBiayaKertas=dimensi.l*dimensi.p*hargaKertasPerCm2*totalLembar,totalBiayaCetak=Math.ceil(totalLembar/2e3)*hargaCetak,totalBiayaFinishing=biayaFinishingSatuan*jumlahPcs,totalBiayaSusun=dataHarga.lainLain.susun*jumlahPcs;grandTotalAsliCache=totalBiayaKertas+totalBiayaCetak+totalBiayaFinishing+totalBiayaSusun;const hargaPerPcsAsli=grandTotalAsliCache/jumlahPcs;let hargaPerPcsFinal=hargaPerPcsAsli*("pelanggan"===userRole?1+profitPercentage/100:1);const grandTotalFinal=hargaPerPcsFinal*jumlahPcs;document.getElementById("hargaPerPcsResult").textContent=formatRupiah(hargaPerPcsFinal);document.getElementById("hargaTotalResult").textContent=formatRupiah(grandTotalFinal);hasilKalkulasi={nama,nomorWa,alamat,ukuran,jumlahPcs,jumlahHalaman,jenisKertas,jenisFinishing,hargaPerPcs:hargaPerPcsFinal,grandTotal:grandTotalFinal};printBtn.disabled=!1;whatsappBtn.disabled=!1;"admin"===userRole&&(saveOrderBtn.style.display="block",saveOrderBtn.disabled=!1)});
-        saveOrderBtn.addEventListener("click",()=>{if(!hasilKalkulasi||!hasilKalkulasi.nama){alert("Nama pemesan wajib diisi sebelum menyimpan!");return}const namaFinishing={jepit:"Jepit Kaleng",ring:"Ring",polos:"Polos"};orderList.push({id:Date.now(),nama:hasilKalkulasi.nama,nomorWa:hasilKalkulasi.nomorWa,alamat:hasilKalkulasi.alamat,tanggal:(new Date).toLocaleDateString("id-ID"),detail:`Kalender ${hasilKalkulasi.jumlahHalaman} hal, ${hasilKalkulasi.ukuran}, ${hasilKalkulasi.jenisKertas}, Fin. ${namaFinishing[hasilKalkulasi.jenisFinishing]}`,hargaTotal:hasilKalkulasi.grandTotal,hargaModal:grandTotalAsliCache,keuntungan:hasilKalkulasi.grandTotal-grandTotalAsliCache,statusPesanan:"Survei",jumlahBayar:0});localStorage.setItem("orderList",JSON.stringify(orderList));alert(`Order untuk ${hasilKalkulasi.nama} berhasil disimpan!`);saveOrderBtn.disabled=!0});
-        
-        // --- FUNGSI IMPORT ORDER DARI WA ---
-        document.getElementById('importOrderBtn').addEventListener('click', () => {
-            const text = document.getElementById('waOrderText').value; if (!text.trim()) { alert('Kolom teks kosong!'); return; }
-            try {
-                const extract = (key) => { const regex = new RegExp(`${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\\s*(.+)`); const match = text.match(regex); return match ? match[1].trim() : null; };
-                const parsePrice = (priceString) => parseFloat(String(priceString).replace(/[Rp. ]/g, '').replace(/\./g, '').replace(',', '.'));
-                const nama = extract('Nama Pemesan'), nomorWa = extract('No. WA'), alamat = extract('Alamat'), ukuran = extract('Ukuran');
-                const jumlahPcs = parseInt(extract('Jumlah')?.replace(' Pcs', '')), jumlahHalaman = parseInt(extract('Jml Halaman')), jenisKertas = extract('Jenis Kertas'), finishingText = extract('Finishing');
-                const grandTotal = parsePrice(extract('Total Harga'));
-                if (!nama || !ukuran || !jumlahPcs || !jumlahHalaman || !jenisKertas || !finishingText || !grandTotal) { throw new Error("Format teks tidak sesuai."); }
-                
-                // Cek apakah ada kode Ref atau hitung ulang jika tidak ada
-                const refRegex = /Ref: KMB-(\d+)/;
-                const refMatch = text.match(refRegex);
-                let hargaModal;
-                if(refMatch) {
-                    hargaModal = parseInt(refMatch[1]);
-                } else {
-                    // Fallback hitung ulang modal jika tidak ada kode Ref
-                    const dimensi = dataHarga.dimensi[ukuran], hargaCetak = dataHarga.ukuranCetak[ukuran], hargaKertasPerCm2 = dataHarga.kertas[jenisKertas];
-                    const namaFinishing = { jepit: 'Jepit Kaleng', ring: 'Ring', polos: 'Polos' };
-                    const finishingKey = Object.keys(namaFinishing).find(key => namaFinishing[key] === finishingText);
-                    let biayaFinishingSatuan = (finishingKey !== 'polos' && dimensi && dataHarga.finishing[finishingKey]) ? dimensi.l * dataHarga.finishing[finishingKey] : 0;
-                    const totalLembar = jumlahPcs * jumlahHalaman, totalBiayaKertas = (dimensi.l * dimensi.p * hargaKertasPerCm2) * totalLembar, totalBiayaCetak = Math.ceil(totalLembar / 2000) * hargaCetak, totalBiayaFinishing = biayaFinishingSatuan * jumlahPcs, totalBiayaSusun = dataHarga.lainLain.susun * jumlahPcs;
-                    hargaModal = totalBiayaKertas + totalBiayaCetak + totalBiayaFinishing + totalBiayaSusun;
+            async function fetchData(sheetName) {
+                try {
+                    const response = await fetch(`${APPS_SCRIPT_URL}?sheet=${sheetName}`);
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return await response.json();
+                } catch (error) {
+                    console.error(`Gagal memuat data dari ${sheetName}:`, error);
+                    return [];
                 }
+            }
 
-                const newOrder = { id: Date.now(), nama, nomorWa, alamat, tanggal: new Date().toLocaleDateString('id-ID'), detail: `Kalender ${jumlahHalaman} hal, ${ukuran}, ${jenisKertas}, Fin. ${finishingText}`, hargaTotal: grandTotal, hargaModal: hargaModal, keuntungan: grandTotal - hargaModal, statusPesanan: "Survei", jumlahBayar: 0, };
-                orderList.push(newOrder); localStorage.setItem('orderList', JSON.stringify(orderList));
-                alert(`Order untuk ${newOrder.nama} berhasil di-import!`); document.getElementById('waOrderText').value = ''; populateRekapanTable();
-            } catch (error) { alert('Gagal meng-import order. Pastikan format teks WA benar.\n\nError: ' + error.message); }
-        });
-        
-        // --- FUNGSI REKAPAN & BIAYA PRODUKSI ---
-        function populateRekapanTable(){const tableBody=document.getElementById("rekapTableBody"),summaryDiv=document.getElementById("rekapSummary");tableBody.innerHTML="";let totalKeuntungan=0;if(0===orderList.length){tableBody.innerHTML='<tr><td colspan="9" style="text-align:center;">Belum ada data order.</td></tr>'}orderList.forEach(order=>{totalKeuntungan+=order.keuntungan;const sisaBayar=order.hargaTotal-(order.jumlahBayar||0);const statusLunas=sisaBayar<=0?"Lunas":"Belum Lunas";const waLink=order.nomorWa?`<a href="https://wa.me/${formatWaNumber(order.nomorWa)}" target="_blank">${order.nomorWa}</a>`:"-";const row=document.createElement("tr");row.innerHTML=`<td>${order.nama}</td><td>${waLink}</td><td>${order.alamat||"-"}</td><td><select class="status-order-select"><option ${"Survei"===order.statusPesanan?"selected":""}>Survei</option><option ${"Desain"===order.statusPesanan?"selected":""}>Desain</option><option ${"Cetak"===order.statusPesanan?"selected":""}>Cetak</option><option ${"Antar"===order.statusPesanan?"selected":""}>Antar</option><option ${"Beres"===order.statusPesanan?"selected":""}>Beres</option></select></td><td>${formatRupiah(order.hargaTotal)}</td><td><input type="number" class="payment-input" value="${order.jumlahBayar||0}"></td><td>${formatRupiah(sisaBayar)} (${statusLunas})</td><td>${formatRupiah(order.keuntungan)}</td><td><button class="btn-rekap-action btn-rekap-save" data-id="${order.id}">Simpan</button><button class="btn-rekap-action btn-rekap-delete" data-id="${order.id}">Hapus</button></td>`;tableBody.appendChild(row)});summaryDiv.innerHTML=`<div class="summary-box"><h3>Total Keuntungan</h3><p>${formatRupiah(totalKeuntungan)}</p></div>`}
-        document.getElementById("rekapTableBody").addEventListener("click",e=>{const orderId=parseInt(e.target.dataset.id);if(e.target.classList.contains("btn-rekap-save")){const orderIndex=orderList.findIndex(o=>o.id===orderId);-1<orderIndex&&(orderList[orderIndex].statusPesanan=e.target.closest("tr").querySelector(".status-order-select").value,orderList[orderIndex].jumlahBayar=parseFloat(e.target.closest("tr").querySelector(".payment-input").value)||0,localStorage.setItem("orderList",JSON.stringify(orderList)),alert("Perubahan berhasil disimpan!"),populateRekapanTable())}else e.target.classList.contains("btn-rekap-delete")&&confirm("Apakah Anda yakin ingin menghapus order ini secara permanen?")&&(orderList=orderList.filter(o=>o.id!==orderId),localStorage.setItem("orderList",JSON.stringify(orderList)),alert("Order berhasil dihapus."),populateRekapanTable())});
-        function renderBiayaProduksiPage(){const projectSelect=document.getElementById("projectSelect"),tableBody=document.getElementById("biayaProduksiTableBody");projectSelect.innerHTML='<option value="">-- Pilih Proyek --</option>';orderList.forEach(order=>{projectSelect.innerHTML+=`<option value="${order.id}">${order.nama} (${order.tanggal})</option>`});tableBody.innerHTML="";if(0===biayaProduksiList.length)tableBody.innerHTML='<tr><td colspan="5" style="text-align:center;">Belum ada data biaya produksi.</td></tr>';biayaProduksiList.forEach(biaya=>{const order=orderList.find(o=>o.id===biaya.orderId),sisaUtang=biaya.totalBiaya-biaya.jumlahBayar,status=sisaUtang<=0?"Lunas":"Belum Lunas",row=document.createElement("tr");row.innerHTML=`<td>${order?order.nama:"Proyek Dihapus"}</td><td>${formatRupiah(biaya.totalBiaya)}</td><td>${formatRupiah(biaya.jumlahBayar)}</td><td>${formatRupiah(sisaUtang)}</td><td>${status}</td>`;tableBody.appendChild(row)})}
-        document.getElementById("biayaProduksiForm").addEventListener("submit",e=>{e.preventDefault();const orderId=parseInt(document.getElementById("projectSelect").value),jumlahBayar=parseFloat(document.getElementById("jumlahBayarProduksi").value);if(!orderId||isNaN(jumlahBayar)){alert("Pilih proyek dan isi jumlah bayar.");return}const order=orderList.find(o=>o.id===orderId);if(!order){alert("Order tidak ditemukan!");return}const totalBiaya=order.hargaModal;const existingIndex=biayaProduksiList.findIndex(b=>b.orderId===orderId);-1<existingIndex?(biayaProduksiList[existingIndex].totalBiaya=totalBiaya,biayaProduksiList[existingIndex].jumlahBayar=jumlahBayar):biayaProduksiList.push({orderId,totalBiaya,jumlahBayar});localStorage.setItem("biayaProduksiList",JSON.stringify(biayaProduksiList));alert("Data pembayaran berhasil disimpan!");document.getElementById("biayaProduksiForm").reset();document.getElementById('biayaProduksiTotalDisplay').textContent = '-';renderBiayaProduksiPage()});
-        document.getElementById('projectSelect').addEventListener('change', (e) => {
-            const orderId = parseInt(e.target.value);
-            const totalDisplay = document.getElementById('biayaProduksiTotalDisplay');
-            const bayarInput = document.getElementById('jumlahBayarProduksi');
-            if (!orderId) { totalDisplay.textContent = '-'; bayarInput.value = ''; return; }
-            const order = orderList.find(o => o.id === orderId);
-            const biaya = biayaProduksiList.find(b => b.orderId === orderId);
-            if (order) { totalDisplay.textContent = formatRupiah(order.hargaModal); }
-            bayarInput.value = biaya ? biaya.jumlahBayar : 0;
-        });
+            async function postData(sheetName, data) {
+                const response = await fetch(`${APPS_SCRIPT_URL}?sheet=${sheetName}`, {
+                    method: 'POST',
+                    body: JSON.stringify(data),
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+                return await response.json();
+            }
 
-        function formatWaNumber(number) { let formatted = String(number).trim().replace(/[- .]/g, ''); if (formatted.startsWith('0')) { formatted = '62' + formatted.substring(1); } else if (!formatted.startsWith('62')) { formatted = '62' + formatted; } return formatted; }
-        printBtn.addEventListener("click",function(){if(!hasilKalkulasi){alert("Silakan klik 'HITUNG' terlebih dahulu.");return}const{nama,alamat,nomorWa,ukuran,jumlahPcs,jumlahHalaman,jenisKertas,jenisFinishing,hargaPerPcs,grandTotal}=hasilKalkulasi,namaFinishing={jepit:"Jepit Kaleng",ring:"Ring",polos:"Polos"},today=new Date,tglNota=today.toLocaleDateString("id-ID",{day:"2-digit",month:"long",year:"numeric"}),noNota=`INV/${today.getFullYear()}${(today.getMonth()+1).toString().padStart(2,"0")}${today.getDate()}`,deskripsi=`Cetak Kalender ${jumlahHalaman} Halaman (Ukuran ${ukuran}, Finishing ${namaFinishing[jenisFinishing]}, Kertas ${jenisKertas})`,notaHTML=`<html><head><title>Nota - ${noNota}</title><style>body{font-family:sans-serif;padding:20px}.container{max-width:800px;margin:auto;border:1px solid #ccc;padding:30px}h1{text-align:center}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #ddd;padding:12px;text-align:left}th{background-color:#f2f2f2}.total-row td{font-weight:bold}.text-right{text-align:right}.footer{margin-top:40px;text-align:center;font-size:12px;color:#777}</style></head><body><div class="container"><h1>NOTA PEMBAYARAN</h1><div><strong>No:</strong> ${noNota}<br><strong>Tanggal:</strong> ${tglNota}</div><div style="margin-top:20px"><strong>Kepada:</strong> ${nama||"Pelanggan"}<br>${nomorWa||""}<br>${alamat||""}</div><table><thead><tr><th>Deskripsi</th><th>Kuantitas</th><th>Harga Satuan</th><th>Subtotal</th></tr></thead><tbody><tr><td>${deskripsi}</td><td>${jumlahPcs.toLocaleString("id-ID")} Pcs</td><td class="text-right">${formatRupiah(hargaPerPcs)}</td><td class="text-right">${formatRupiah(grandTotal)}</td></tr></tbody><tfoot><tr class="total-row"><td colspan="3" class="text-right">GRAND TOTAL</td><td class="text-right">${formatRupiah(grandTotal)}</td></tr></tfoot></table><div class="footer"><p>Terima kasih.</p></div></div></body></html>`,printWindow=window.open("","_blank");printWindow.document.write(notaHTML);printWindow.document.close();printWindow.focus();printWindow.print()});
-        whatsappBtn.addEventListener("click",function(){if(!hasilKalkulasi){alert("Silakan klik 'HITUNG' terlebih dahulu.");return}const{nama,nomorWa,alamat,ukuran,jumlahPcs,jumlahHalaman,jenisKertas,jenisFinishing,hargaPerPcs,grandTotal}=hasilKalkulasi,namaFinishing={jepit:"Jepit Kaleng",ring:"Ring",polos:"Polos"},nomorTujuan="62895396790509",pesan=`Halo, saya ingin memesan kalender dengan rincian:\n\n*Nama Pemesan:* ${nama||"-"}\n*No. WA:* ${nomorWa||"-"}\n*Alamat:* ${alamat||"-"}\n-----------------------------------\n*DETAIL PESANAN*\n*Ukuran:* ${ukuran}\n*Jumlah:* ${jumlahPcs} Pcs\n*Jml Halaman:* ${jumlahHalaman}\n*Jenis Kertas:* ${jenisKertas}\n*Finishing:* ${namaFinishing[jenisFinishing]}\n-----------------------------------\n*ESTIMASI HARGA*\n*Harga/Pcs:* ${formatRupiah(hargaPerPcs)}\n*Total Harga:* ${formatRupiah(grandTotal)}\n\n*Ref: KMB-${Math.round(grandTotalAsliCache)}*\n\nMohon konfirmasi untuk proses selanjutnya. Terima kasih.`,encodedPesan=encodeURIComponent(pesan),urlWA=`https://wa.me/${nomorTujuan}?text=${encodedPesan}`;window.open(urlWA,"_blank")});
-    });
+            async function updateData(sheetName, id, data) {
+                const response = await fetch(`${APPS_SCRIPT_URL}?sheet=${sheetName}&id=${id}`, {
+                    method: 'PUT',
+                    body: JSON.stringify(data),
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+                return await response.json();
+            }
+
+            async function deleteData(sheetName, id) {
+                const response = await fetch(`${APPS_SCRIPT_URL}?sheet=${sheetName}&id=${id}`, {
+                    method: 'DELETE',
+                });
+                if (!response.ok) throw new Error('Network response was not ok');
+                return await response.json();
+            }
+
+            async function initializeData() {
+                try {
+                    const [settings, orders, biaya, gallery] = await Promise.all([
+                        fetchData('Settings'),
+                        fetchData('OrderList'),
+                        fetchData('BiayaProduksiList'),
+                        fetchData('GalleryItems')
+                    ]);
+                    
+                    const defaultDataHarga = {kertas:{"AP 120 gram":.219,"AP 150 gram":.268,"AP 230 gram":.402},ukuranCetak:{"31x48":3e5,"48x53":48e4,"44x64":6e5},dimensi:{"31x48":{l:31,p:48},"48x53":{l:48,p:53},"44x64":{l:44,p:64}},finishing:{jepit:17,ring:156},lainLain:{susun:50}};
+                    const defaultProfitPercentage = 90;
+                    
+                    dataHarga = (settings[0] && settings[0].dataHarga) ? JSON.parse(settings[0].dataHarga) : defaultDataHarga;
+                    profitPercentage = (settings[0] && settings[0].profitPercentage) ? parseFloat(settings[0].profitPercentage) : defaultProfitPercentage;
+                    orderList = orders;
+                    biayaProduksiList = biaya;
+                    galleryItems = gallery.map(item => ({url: item.url, title: item.title, id: item.id}));
+                    
+                } catch (error) {
+                    console.error("Gagal memuat data dari server:", error);
+                    alert("Gagal memuat data dari server. Pastikan koneksi internet stabil.");
+                }
+            }
+
+            // --- NAVIGASI DAN FUNGSI LAINNYA ---
+            const pages = { welcome: document.getElementById("welcomeScreen"), pelangganDashboard: document.getElementById("pelangganDashboardPage"), gallery: document.getElementById("galleryPage"), adminDashboard: document.getElementById("adminDashboardPage"), calculator: document.getElementById("calculatorPage"), updateHarga: document.getElementById("updateHargaPage"), settingKeuntungan: document.getElementById("settingKeuntunganPage"), rekapan: document.getElementById("rekapanPage"), biayaProduksi: document.getElementById("biayaProduksiPage"), galleryManagement: document.getElementById("galleryManagementPage") };
+            const loginModal = document.getElementById("loginModal");
+            const returnToDashboardBtn = document.getElementById('returnToDashboardBtn');
+
+            let currentHistoryState = { page: "welcome" };
+            history.replaceState(currentHistoryState, "", "#welcome");
+
+            function transitionPages(pageOut, pageIn) {
+                currentPage = pageIn;
+                pageIn.classList.remove("hidden");
+                pageOut.classList.add("animate-fade-out");
+                pageIn.classList.add("animate-fade-in");
+                pageOut.addEventListener("animationend", function handler() {
+                    pageOut.classList.add("hidden");
+                    pageOut.classList.remove("animate-fade-out");
+                    pageOut.removeEventListener("animationend", handler);
+                });
+                pageIn.addEventListener("animationend", function handler() {
+                    pageIn.classList.remove("animate-fade-in");
+                    pageIn.removeEventListener("animationend", handler);
+                });
+            }
+
+            function navigateTo(state) {
+                const pageOut = currentPage, pageIn = pages[state.page];
+                if (pageOut !== pageIn) {
+                    transitionPages(pageOut, pageIn);
+                }
+                history.pushState(state, "", `#${state.page}`);
+                currentHistoryState = state;
+            }
+
+            window.addEventListener("popstate", e => {
+                if (e.state) {
+                    const pageToShow = pages[e.state.page];
+                    if (pageToShow) {
+                        Object.values(pages).forEach(p => p.classList.add("hidden"));
+                        pageToShow.classList.remove("hidden");
+                        currentPage = pageToShow;
+                        currentHistoryState = e.state;
+                        checkLoginState();
+                    }
+                }
+            });
+
+            window.addEventListener("keydown", e => {
+                const activeEl = document.activeElement;
+                "Backspace" === e.key && "INPUT" !== activeEl.tagName && "SELECT" !== activeEl.tagName && "TEXTAREA" !== activeEl.tagName && (e.preventDefault(), history.back())
+            });
+
+            function checkLoginState() {
+                if (sessionStorage.getItem('isAdminLoggedIn') === 'true') {
+                    returnToDashboardBtn.classList.remove('hidden');
+                } else {
+                    returnToDashboardBtn.classList.add('hidden');
+                }
+            }
+
+            document.getElementById("adminBtn").addEventListener("click", () => loginModal.classList.add("visible"));
+            document.getElementById("pelangganBtn").addEventListener("click", () => navigateTo({ page: "pelangganDashboard" }));
+            document.getElementById("loginCancelBtn").addEventListener("click", () => loginModal.classList.remove("visible"));
+
+            document.getElementById("loginForm").addEventListener("submit", async e => {
+                e.preventDefault();
+                const username = document.getElementById("usernameInput").value.toLowerCase();
+                const password = document.getElementById("passwordInput").value;
+                const loginBox = document.querySelector(".login-box");
+
+                const users = await fetchData('Users');
+                const user = users.find(u => u.username === username && u.password === password);
+
+                if (user) {
+                    sessionStorage.setItem('isAdminLoggedIn', 'true');
+                    loginModal.classList.remove("visible");
+                    document.getElementById("usernameInput").value = "";
+                    document.getElementById("passwordInput").value = "";
+                    checkLoginState();
+                    navigateTo({ page: "adminDashboard" });
+                } else {
+                    loginBox.classList.add("shake");
+                    setTimeout(() => loginBox.classList.remove("shake"), 500);
+                }
+            });
+
+            document.getElementById('logoutBtn').addEventListener('click', () => {
+                sessionStorage.removeItem('isAdminLoggedIn');
+                checkLoginState();
+                navigateTo({ page: 'welcome' });
+            });
+
+            document.getElementById('returnToDashboardBtn').addEventListener('click', () => navigateTo({ page: 'adminDashboard' }));
+            document.getElementById('goToCalcPelangganBtn').addEventListener('click', () => { userRole = 'pelanggan'; document.getElementById('calculatorTitle').textContent = 'Kalkulator Harga Kalender'; document.getElementById('saveOrderBtn').style.display = 'none'; navigateTo({ page: "calculator", role: "pelanggan" }); });
+            document.getElementById('goToGalleryBtn').addEventListener('click', () => { renderCustomerGallery(); navigateTo({ page: "gallery" }); });
+            document.getElementById("goToCalcAdminBtn").addEventListener("click", () => { userRole = "admin"; document.getElementById("calculatorTitle").textContent = "Kalkulator Admin"; navigateTo({ page: "calculator", role: "admin" }) });
+            document.getElementById("goToRekapanBtn").addEventListener("click", () => { populateRekapanTable(); navigateTo({ page: "rekapan" }) });
+            document.getElementById("goToBiayaProduksiBtn").addEventListener("click", () => { renderBiayaProduksiPage(); navigateTo({ page: "biayaProduksi" }) });
+            document.getElementById("goToGalleryManagementBtn").addEventListener("click", () => { renderGalleryManagement(); navigateTo({ page: "galleryManagement" }) });
+            document.getElementById("goToUpdateHargaBtn").addEventListener("click", () => { populateUpdateHargaForm(); navigateTo({ page: "updateHarga" }) });
+            document.getElementById("goToSettingUntungBtn").addEventListener("click", () => { document.getElementById("profitPercentageInput").value = profitPercentage; navigateTo({ page: "settingKeuntungan" }) });
+            document.querySelectorAll(".back-btn").forEach(btn => { btn.addEventListener("click", () => { history.back() }) });
+            checkLoginState();
+
+            const formatRupiah = angka => new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(angka);
+            
+            // --- FUNGSI HALAMAN UPDATE HARGA ---
+            function populateUpdateHargaForm() {
+                const form = document.getElementById("updateHargaForm");
+                let html = "<h3>Harga Kertas (per cm²)</h3>";
+                for (const k in dataHarga.kertas) html += `<div class="form-group"><label for="k_${k}">${k}</label><input type="number" step="0.001" id="k_${k}" value="${dataHarga.kertas[k]}"></div>`;
+                html += "<h3>Harga Cetak (per 2000 lbr)</h3>";
+                for (const k in dataHarga.ukuranCetak) html += `<div class="form-group"><label for="c_${k}">Ukuran ${k}</label><input type="number" id="c_${k}" value="${dataHarga.ukuranCetak[k]}"></div>`;
+                html += "<h3>Harga Finishing (per cm lebar)</h3>";
+                for (const k in dataHarga.finishing) html += `<div class="form-group"><label for="f_${k}">${k}</label><input type="number" id="f_${k}" value="${dataHarga.finishing[k]}"></div>`;
+                html += "<h3>Harga Lain-lain (per pcs)</h3>";
+                html += `<div class="form-group"><label for="ll_susun">Harga Susun</label><input type="number" id="ll_susun" value="${dataHarga.lainLain.susun}"></div>`;
+                html += '<button type="submit" class="btn-save">Simpan Perubahan</button>';
+                form.innerHTML = html;
+            }
+
+            document.getElementById("updateHargaForm").addEventListener("submit", async e => {
+                e.preventDefault();
+                const newDataHarga = { ...dataHarga };
+                for (const k in newDataHarga.kertas) newDataHarga.kertas[k] = parseFloat(document.getElementById(`k_${k}`).value);
+                for (const k in newDataHarga.ukuranCetak) newDataHarga.ukuranCetak[k] = parseInt(document.getElementById(`c_${k}`).value);
+                for (const k in newDataHarga.finishing) newDataHarga.finishing[k] = parseFloat(document.getElementById(`f_${k}`).value);
+                newDataHarga.lainLain.susun = parseInt(document.getElementById("ll_susun").value);
+                
+                try {
+                    await updateData('Settings', '1', { dataHarga: JSON.stringify(newDataHarga) });
+                    dataHarga = newDataHarga;
+                    alert("Harga berhasil disimpan!");
+                } catch (error) {
+                    alert("Gagal menyimpan harga.");
+                    console.error(error);
+                }
+            });
+            
+            // --- FUNGSI HALAMAN SETTING KEUNTUNGAN ---
+            document.getElementById("settingKeuntunganForm").addEventListener("submit", async e => {
+                e.preventDefault();
+                const newProfitPercentage = parseFloat(document.getElementById("profitPercentageInput").value);
+                try {
+                    await updateData('Settings', '1', { profitPercentage: newProfitPercentage });
+                    profitPercentage = newProfitPercentage;
+                    alert("Persentase keuntungan berhasil disimpan!");
+                } catch (error) {
+                    alert("Gagal menyimpan persentase keuntungan.");
+                    console.error(error);
+                }
+            });
+
+            // --- FUNGSI HALAMAN GALERI ---
+            const lightbox = document.getElementById("lightbox"), lightboxImage = document.getElementById("lightboxImage");
+            function renderCustomerGallery() {
+                const grid = document.getElementById("galleryGrid");
+                grid.innerHTML = "";
+                if (0 === galleryItems.length) { grid.innerHTML = "<p>Belum ada desain di galeri.</p>" }
+                galleryItems.forEach(item => { grid.innerHTML += `<div class="gallery-item" data-url="${item.url}"><img src="${item.url}" alt="${item.title}"><p>${item.title}</p></div>` })
+            }
+
+            document.getElementById("galleryGrid").addEventListener("click", e => {
+                const item = e.target.closest(".gallery-item");
+                if (item) {
+                    lightboxImage.src = item.dataset.url;
+                    lightbox.classList.remove("hidden");
+                }
+            });
+
+            function renderGalleryManagement() {
+                const list = document.getElementById("galleryManagementList");
+                list.innerHTML = "";
+                if (0 === galleryItems.length) { list.innerHTML = "<p>Belum ada desain di galeri.</p>" }
+                galleryItems.forEach((item, index) => {
+                    list.innerHTML += `<div class="gallery-item" data-id="${item.id}"><img src="${item.url}" alt="${item.title}"><div class="gallery-item-footer"><p>${item.title}</p><button class="delete-gallery-item-btn" data-id="${item.id}">Hapus</button></div></div>`
+                })
+            }
+
+            document.getElementById("addGalleryItemForm").addEventListener("submit", async e => {
+                e.preventDefault();
+                const fileInput = document.getElementById("galleryItemFile");
+                const title = document.getElementById("galleryItemTitle").value;
+                const file = fileInput.files[0];
+
+                if (file && title) {
+                    const reader = new FileReader();
+                    reader.onload = async function (event) {
+                        const imageUrl = event.target.result;
+                        const newItem = { id: Date.now().toString(), url: imageUrl, title: title };
+                        try {
+                            await postData('GalleryItems', newItem);
+                            galleryItems.push(newItem);
+                            alert("Desain berhasil ditambahkan!");
+                            e.target.reset();
+                            renderGalleryManagement();
+                        } catch (error) {
+                            alert("Gagal menyimpan desain.");
+                            console.error(error);
+                        }
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+
+            document.getElementById("galleryManagementList").addEventListener("click", async e => {
+                if (e.target.classList.contains("delete-gallery-item-btn")) {
+                    if (confirm("Yakin ingin menghapus desain ini?")) {
+                        const id = e.target.dataset.id;
+                        try {
+                            await deleteData('GalleryItems', id);
+                            galleryItems = galleryItems.filter(item => item.id !== id);
+                            alert("Desain berhasil dihapus.");
+                            renderGalleryManagement();
+                        } catch (error) {
+                            alert("Gagal menghapus desain.");
+                            console.error(error);
+                        }
+                    }
+                }
+            });
+
+            // --- FUNGSI KALKULATOR & ORDER ---
+            const calculateBtn = document.getElementById("calculateBtn"), saveOrderBtn = document.getElementById("saveOrderBtn"), printBtn = document.getElementById("printBtn"), whatsappBtn = document.getElementById("whatsappBtn");
+            printBtn.disabled = !0;
+            whatsappBtn.disabled = !0;
+            saveOrderBtn.disabled = !0;
+            const inputs = document.querySelectorAll(".form-input");
+            inputs.forEach(input => {
+                input.addEventListener("input", () => {
+                    printBtn.disabled = !0;
+                    whatsappBtn.disabled = !0;
+                    saveOrderBtn.disabled = !0;
+                    hasilKalkulasi = null
+                })
+            });
+
+            calculateBtn.addEventListener("click", () => {
+                const nama = document.getElementById("nama").value, nomorWa = document.getElementById("nomorWa").value, alamat = document.getElementById("alamat").value, ukuran = document.getElementById("ukuran").value, jumlahPcs = parseInt(document.getElementById("jumlahPcs").value) || 0, jumlahHalaman = parseInt(document.getElementById("jumlahHalaman").value) || 0, jenisKertas = document.getElementById("jenisKertas").value, jenisFinishing = document.getElementById("jenisFinishing").value;
+                if (!ukuran || jumlahPcs <= 0 || jumlahHalaman <= 0 || !jenisKertas) { alert("Mohon lengkapi data!"); return }
+                const dimensi = dataHarga.dimensi[ukuran], hargaCetak = dataHarga.ukuranCetak[ukuran], hargaKertasPerCm2 = dataHarga.kertas[jenisKertas];
+                let biayaFinishingSatuan = "polos" !== jenisFinishing ? dimensi.l * dataHarga.finishing[jenisFinishing] : 0;
+                const totalLembar = jumlahPcs * jumlahHalaman, totalBiayaKertas = dimensi.l * dimensi.p * hargaKertasPerCm2 * totalLembar, totalBiayaCetak = Math.ceil(totalLembar / 2e3) * hargaCetak, totalBiayaFinishing = biayaFinishingSatuan * jumlahPcs, totalBiayaSusun = dataHarga.lainLain.susun * jumlahPcs;
+                grandTotalAsliCache = totalBiayaKertas + totalBiayaCetak + totalBiayaFinishing + totalBiayaSusun;
+                const hargaPerPcsAsli = grandTotalAsliCache / jumlahPcs;
+                let hargaPerPcsFinal = hargaPerPcsAsli * ("pelanggan" === userRole ? 1 + profitPercentage / 100 : 1);
+                const grandTotalFinal = hargaPerPcsFinal * jumlahPcs;
+                document.getElementById("hargaPerPcsResult").textContent = formatRupiah(hargaPerPcsFinal);
+                document.getElementById("hargaTotalResult").textContent = formatRupiah(grandTotalFinal);
+                hasilKalkulasi = { nama, nomorWa, alamat, ukuran, jumlahPcs, jumlahHalaman, jenisKertas, jenisFinishing, hargaPerPcs: hargaPerPcsFinal, grandTotal: grandTotalFinal };
+                printBtn.disabled = !1;
+                whatsappBtn.disabled = !1;
+                "admin" === userRole && (saveOrderBtn.style.display = "block", saveOrderBtn.disabled = !1)
+            });
+
+            saveOrderBtn.addEventListener("click", async () => {
+                if (!hasilKalkulasi || !hasilKalkulasi.nama) { alert("Nama pemesan wajib diisi sebelum menyimpan!"); return; }
+                const namaFinishing = { jepit: "Jepit Kaleng", ring: "Ring", polos: "Polos" };
+                const newOrder = {
+                    id: Date.now().toString(),
+                    nama: hasilKalkulasi.nama,
+                    nomorWa: hasilKalkulasi.nomorWa,
+                    alamat: hasilKalkulasi.alamat,
+                    tanggal: (new Date).toLocaleDateString("id-ID"),
+                    detail: `Kalender ${hasilKalkulasi.jumlahHalaman} hal, ${hasilKalkulasi.ukuran}, ${hasilKalkulasi.jenisKertas}, Fin. ${namaFinishing[hasilKalkulasi.jenisFinishing]}`,
+                    hargaTotal: hasilKalkulasi.grandTotal,
+                    hargaModal: grandTotalAsliCache,
+                    keuntungan: hasilKalkulasi.grandTotal - grandTotalAsliCache,
+                    statusPesanan: "Survei",
+                    jumlahBayar: 0
+                };
+                try {
+                    await postData('OrderList', newOrder);
+                    orderList.push(newOrder);
+                    alert(`Order untuk ${newOrder.nama} berhasil disimpan!`);
+                    saveOrderBtn.disabled = true;
+                } catch (error) {
+                    alert("Gagal menyimpan order.");
+                    console.error(error);
+                }
+            });
+
+            // --- FUNGSI IMPORT ORDER DARI WA ---
+            document.getElementById('importOrderBtn').addEventListener('click', async () => {
+                const text = document.getElementById('waOrderText').value;
+                if (!text.trim()) { alert('Kolom teks kosong!'); return; }
+                try {
+                    const extract = (key) => { const regex = new RegExp(`${key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}:\\s*(.+)`); const match = text.match(regex); return match ? match[1].trim() : null; };
+                    const parsePrice = (priceString) => parseFloat(String(priceString).replace(/[Rp. ]/g, '').replace(/\./g, '').replace(',', '.'));
+                    const nama = extract('Nama Pemesan'), nomorWa = extract('No. WA'), alamat = extract('Alamat'), ukuran = extract('Ukuran');
+                    const jumlahPcs = parseInt(extract('Jumlah')?.replace(' Pcs', '')), jumlahHalaman = parseInt(extract('Jml Halaman')), jenisKertas = extract('Jenis Kertas'), finishingText = extract('Finishing');
+                    const grandTotal = parsePrice(extract('Total Harga'));
+                    if (!nama || !ukuran || !jumlahPcs || !jumlahHalaman || !jenisKertas || !finishingText || !grandTotal) { throw new Error("Format teks tidak sesuai."); }
+
+                    const refRegex = /Ref: KMB-(\d+)/;
+                    const refMatch = text.match(refRegex);
+                    let hargaModal;
+                    if (refMatch) {
+                        hargaModal = parseInt(refMatch[1]);
+                    } else {
+                        const dimensi = dataHarga.dimensi[ukuran], hargaCetak = dataHarga.ukuranCetak[ukuran], hargaKertasPerCm2 = dataHarga.kertas[jenisKertas];
+                        const namaFinishing = { jepit: 'Jepit Kaleng', ring: 'Ring', polos: 'Polos' };
+                        const finishingKey = Object.keys(namaFinishing).find(key => namaFinishing[key] === finishingText);
+                        let biayaFinishingSatuan = (finishingKey !== 'polos' && dimensi && dataHarga.finishing[finishingKey]) ? dimensi.l * dataHarga.finishing[finishingKey] : 0;
+                        const totalLembar = jumlahPcs * jumlahHalaman, totalBiayaKertas = (dimensi.l * dimensi.p * hargaKertasPerCm2) * totalLembar, totalBiayaCetak = Math.ceil(totalLembar / 2000) * hargaCetak, totalBiayaFinishing = biayaFinishingSatuan * jumlahPcs, totalBiayaSusun = dataHarga.lainLain.susun * jumlahPcs;
+                        hargaModal = totalBiayaKertas + totalBiayaCetak + totalBiayaFinishing + totalBiayaSusun;
+                    }
+
+                    const newOrder = {
+                        id: Date.now().toString(),
+                        nama,
+                        nomorWa,
+                        alamat,
+                        tanggal: new Date().toLocaleDateString('id-ID'),
+                        detail: `Kalender ${jumlahHalaman} hal, ${ukuran}, ${jenisKertas}, Fin. ${finishingText}`,
+                        hargaTotal: grandTotal,
+                        hargaModal: hargaModal,
+                        keuntungan: grandTotal - hargaModal,
+                        statusPesanan: "Survei",
+                        jumlahBayar: 0,
+                    };
+                    await postData('OrderList', newOrder);
+                    orderList.push(newOrder);
+                    alert(`Order untuk ${newOrder.nama} berhasil di-import!`);
+                    document.getElementById('waOrderText').value = '';
+                    populateRekapanTable();
+                } catch (error) {
+                    alert('Gagal meng-import order. Pastikan format teks WA benar.\n\nError: ' + error.message);
+                }
+            });
+
+            // --- FUNGSI REKAPAN & BIAYA PRODUKSI ---
+            function populateRekapanTable() {
+                const tableBody = document.getElementById("rekapTableBody"), summaryDiv = document.getElementById("rekapSummary");
+                tableBody.innerHTML = "";
+                let totalKeuntungan = 0;
+                if (0 === orderList.length) { tableBody.innerHTML = '<tr><td colspan="9" style="text-align:center;">Belum ada data order.</td></tr>' }
+                orderList.forEach(order => {
+                    totalKeuntungan += order.keuntungan;
+                    const sisaBayar = order.hargaTotal - (order.jumlahBayar || 0);
+                    const statusLunas = sisaBayar <= 0 ? "Lunas" : "Belum Lunas";
+                    const waLink = order.nomorWa ? `<a href="https://wa.me/${formatWaNumber(order.nomorWa)}" target="_blank">${order.nomorWa}</a>` : "-";
+                    const row = document.createElement("tr");
+                    row.innerHTML = `<td>${order.nama}</td><td>${waLink}</td><td>${order.alamat || "-"}</td><td><select class="status-order-select"><option ${"Survei" === order.statusPesanan ? "selected" : ""}>Survei</option><option ${"Desain" === order.statusPesanan ? "selected" : ""}>Desain</option><option ${"Cetak" === order.statusPesanan ? "selected" : ""}>Cetak</option><option ${"Antar" === order.statusPesanan ? "selected" : ""}>Antar</option><option ${"Beres" === order.statusPesanan ? "selected" : ""}>Beres</option></select></td><td>${formatRupiah(order.hargaTotal)}</td><td><input type="number" class="payment-input" value="${order.jumlahBayar || 0}"></td><td>${formatRupiah(sisaBayar)} (${statusLunas})</td><td>${formatRupiah(order.keuntungan)}</td><td><button class="btn-rekap-action btn-rekap-save" data-id="${order.id}">Simpan</button><button class="btn-rekap-action btn-rekap-delete" data-id="${order.id}">Hapus</button></td>`;
+                    tableBody.appendChild(row);
+                });
+                summaryDiv.innerHTML = `<div class="summary-box"><h3>Total Keuntungan</h3><p>${formatRupiah(totalKeuntungan)}</p></div>`;
+            }
+
+            document.getElementById("rekapTableBody").addEventListener("click", async e => {
+                const orderId = e.target.dataset.id;
+                if (e.target.classList.contains("btn-rekap-save")) {
+                    const orderIndex = orderList.findIndex(o => o.id === orderId);
+                    if (orderIndex > -1) {
+                        orderList[orderIndex].statusPesanan = e.target.closest("tr").querySelector(".status-order-select").value;
+                        orderList[orderIndex].jumlahBayar = parseFloat(e.target.closest("tr").querySelector(".payment-input").value) || 0;
+                        try {
+                            await updateData('OrderList', orderId, orderList[orderIndex]);
+                            alert("Perubahan berhasil disimpan!");
+                            populateRekapanTable();
+                        } catch (error) {
+                            alert("Gagal menyimpan perubahan.");
+                            console.error(error);
+                        }
+                    }
+                } else if (e.target.classList.contains("btn-rekap-delete") && confirm("Apakah Anda yakin ingin menghapus order ini secara permanen?")) {
+                    try {
+                        await deleteData('OrderList', orderId);
+                        orderList = orderList.filter(o => o.id !== orderId);
+                        alert("Order berhasil dihapus.");
+                        populateRekapanTable();
+                    } catch (error) {
+                        alert("Gagal menghapus order.");
+                        console.error(error);
+                    }
+                }
+            });
+
+            function renderBiayaProduksiPage() {
+                const projectSelect = document.getElementById("projectSelect"), tableBody = document.getElementById("biayaProduksiTableBody");
+                projectSelect.innerHTML = '<option value="">-- Pilih Proyek --</option>';
+                orderList.forEach(order => { projectSelect.innerHTML += `<option value="${order.id}">${order.nama} (${order.tanggal})</option>` });
+                tableBody.innerHTML = "";
+                if (0 === biayaProduksiList.length) tableBody.innerHTML = '<tr><td colspan="5" style="text-align:center;">Belum ada data biaya produksi.</td></tr>';
+                biayaProduksiList.forEach(biaya => {
+                    const order = orderList.find(o => o.id === biaya.orderId);
+                    const sisaUtang = biaya.totalBiaya - biaya.jumlahBayar, status = sisaUtang <= 0 ? "Lunas" : "Belum Lunas", row = document.createElement("tr");
+                    row.innerHTML = `<td>${order ? order.nama : "Proyek Dihapus"}</td><td>${formatRupiah(biaya.totalBiaya)}</td><td>${formatRupiah(biaya.jumlahBayar)}</td><td>${formatRupiah(sisaUtang)}</td><td>${status}</td>`;
+                    tableBody.appendChild(row);
+                });
+            }
+
+            document.getElementById("biayaProduksiForm").addEventListener("submit", async e => {
+                e.preventDefault();
+                const orderId = document.getElementById("projectSelect").value, jumlahBayar = parseFloat(document.getElementById("jumlahBayarProduksi").value);
+                if (!orderId || isNaN(jumlahBayar)) { alert("Pilih proyek dan isi jumlah bayar."); return }
+                const order = orderList.find(o => o.id === orderId);
+                if (!order) { alert("Order tidak ditemukan!"); return }
+                const totalBiaya = order.hargaModal;
+                const existingBiaya = biayaProduksiList.find(b => b.orderId === orderId);
+                
+                const newBiaya = {
+                    orderId: orderId,
+                    totalBiaya: totalBiaya,
+                    jumlahBayar: jumlahBayar,
+                };
+
+                try {
+                    if (existingBiaya) {
+                        await updateData('BiayaProduksiList', existingBiaya.id, newBiaya);
+                        Object.assign(existingBiaya, newBiaya);
+                    } else {
+                        newBiaya.id = Date.now().toString();
+                        await postData('BiayaProduksiList', newBiaya);
+                        biayaProduksiList.push(newBiaya);
+                    }
+                    alert("Data pembayaran berhasil disimpan!");
+                    document.getElementById("biayaProduksiForm").reset();
+                    document.getElementById('biayaProduksiTotalDisplay').textContent = '-';
+                    renderBiayaProduksiPage();
+                } catch (error) {
+                    alert("Gagal menyimpan pembayaran.");
+                    console.error(error);
+                }
+            });
+
+            document.getElementById('projectSelect').addEventListener('change', (e) => {
+                const orderId = e.target.value;
+                const totalDisplay = document.getElementById('biayaProduksiTotalDisplay');
+                const bayarInput = document.getElementById('jumlahBayarProduksi');
+                if (!orderId) { totalDisplay.textContent = '-'; bayarInput.value = ''; return; }
+                const order = orderList.find(o => o.id === orderId);
+                const biaya = biayaProduksiList.find(b => b.orderId === orderId);
+                if (order) { totalDisplay.textContent = formatRupiah(order.hargaModal); }
+                bayarInput.value = biaya ? biaya.jumlahBayar : 0;
+            });
+
+            function formatWaNumber(number) { let formatted = String(number).trim().replace(/[- .]/g, ''); if (formatted.startsWith('0')) { formatted = '62' + formatted.substring(1); } else if (!formatted.startsWith('62')) { formatted = '62' + formatted; } return formatted; }
+            
+            printBtn.addEventListener("click", function () {
+                if (!hasilKalkulasi) { alert("Silakan klik 'HITUNG' terlebih dahulu."); return }
+                const { nama, alamat, nomorWa, ukuran, jumlahPcs, jumlahHalaman, jenisKertas, jenisFinishing, hargaPerPcs, grandTotal } = hasilKalkulasi, namaFinishing = { jepit: "Jepit Kaleng", ring: "Ring", polos: "Polos" }, today = new Date, tglNota = today.toLocaleDateString("id-ID", { day: "2-digit", month: "long", year: "numeric" }), noNota = `INV/${today.getFullYear()}${(today.getMonth() + 1).toString().padStart(2, "0")}${today.getDate()}`, deskripsi = `Cetak Kalender ${jumlahHalaman} Halaman (Ukuran ${ukuran}, Finishing ${namaFinishing[jenisFinishing]}, Kertas ${jenisKertas})`, notaHTML = `<html><head><title>Nota - ${noNota}</title><style>body{font-family:sans-serif;padding:20px}.container{max-width:800px;margin:auto;border:1px solid #ccc;padding:30px}h1{text-align:center}table{width:100%;border-collapse:collapse;margin-top:20px}th,td{border:1px solid #ddd;padding:12px;text-align:left}th{background-color:#f2f2f2}.total-row td{font-weight:bold}.text-right{text-align:right}.footer{margin-top:40px;text-align:center;font-size:12px;color:#777}</style></head><body><div class="container"><h1>NOTA PEMBAYARAN</h1><div><strong>No:</strong> ${noNota}<br><strong>Tanggal:</strong> ${tglNota}</div><div style="margin-top:20px"><strong>Kepada:</strong> ${nama || "Pelanggan"}<br>${nomorWa || ""}<br>${alamat || ""}</div><table><thead><tr><th>Deskripsi</th><th>Kuantitas</th><th>Harga Satuan</th><th>Subtotal</th></tr></thead><tbody><tr><td>${deskripsi}</td><td>${jumlahPcs.toLocaleString("id-ID")} Pcs</td><td class="text-right">${formatRupiah(hargaPerPcs)}</td><td class="text-right">${formatRupiah(grandTotal)}</td></tr></tbody><tfoot><tr class="total-row"><td colspan="3" class="text-right">GRAND TOTAL</td><td class="text-right">${formatRupiah(grandTotal)}</td></tr></tfoot></table><div class="footer"><p>Terima kasih.</p></div></div></body></html>`, printWindow = window.open("", "_blank");
+                printWindow.document.write(notaHTML);
+                printWindow.document.close();
+                printWindow.focus();
+                printWindow.print();
+            });
+
+            whatsappBtn.addEventListener("click", function () {
+                if (!hasilKalkulasi) { alert("Silakan klik 'HITUNG' terlebih dahulu."); return }
+                const { nama, nomorWa, alamat, ukuran, jumlahPcs, jumlahHalaman, jenisKertas, jenisFinishing, hargaPerPcs, grandTotal } = hasilKalkulasi, namaFinishing = { jepit: "Jepit Kaleng", ring: "Ring", polos: "Polos" }, nomorTujuan = "62895396790509", pesan = `Halo, saya ingin memesan kalender dengan rincian:\n\n*Nama Pemesan:* ${nama || "-"}\n*No. WA:* ${nomorWa || "-"}\n*Alamat:* ${alamat || "-"}\n-----------------------------------\n*DETAIL PESANAN*\n*Ukuran:* ${ukuran}\n*Jumlah:* ${jumlahPcs} Pcs\n*Jml Halaman:* ${jumlahHalaman}\n*Jenis Kertas:* ${jenisKertas}\n*Finishing:* ${namaFinishing[jenisFinishing]}\n-----------------------------------\n*ESTIMASI HARGA*\n*Harga/Pcs:* ${formatRupiah(hargaPerPcs)}\n*Total Harga:* ${formatRupiah(grandTotal)}\n\n*Ref: KMB-${Math.round(grandTotalAsliCache)}*\n\nMohon konfirmasi untuk proses selanjutnya. Terima kasih.`, encodedPesan = encodeURIComponent(pesan), urlWA = `https://wa.me/${nomorTujuan}?text=${encodedPesan}`;
+                window.open(urlWA, "_blank");
+            });
+
+            initializeData();
+
+            const clockDisplay = document.getElementById("clockDisplay"), gregorianDateDisplay = document.getElementById("gregorianDateDisplay"), hijriDateDisplay = document.getElementById("hijriDateDisplay"), prayerTimesContainer = document.getElementById("prayerTimesContainer");
+
+            function updateDateTime() {
+                const now = new Date;
+                clockDisplay.textContent = now.toLocaleTimeString("id-ID", { hour12: !1 });
+                gregorianDateDisplay.textContent = now.toLocaleDateString("id-ID", { weekday: "long", year: "numeric", month: "long", day: "numeric" });
+                hijriDateDisplay.textContent = (new Intl.DateTimeFormat("id-ID-u-ca-islamic", { day: "numeric", month: "long", year: "numeric" })).format(now);
+            }
+            setInterval(updateDateTime, 1e3);
+            updateDateTime();
+
+            function getPrayerTimes(latitude, longitude) {
+                const date = new Date, year = date.getFullYear(), month = date.getMonth() + 1, apiUrl = `https://api.aladhan.com/v1/calendar/${year}/${month}?latitude=${latitude}&longitude=${longitude}&method=20`;
+                fetch(apiUrl).then(response => response.json()).then(data => {
+                    const todayTimings = data.data[date.getDate() - 1].timings;
+                    document.getElementById("fajrTime").textContent = todayTimings.Fajr;
+                    document.getElementById("dhuhrTime").textContent = todayTimings.Dhuhr;
+                    document.getElementById("asrTime").textContent = todayTimings.Asr;
+                    document.getElementById("maghribTime").textContent = todayTimings.Maghrib;
+                    document.getElementById("ishaTime").textContent = todayTimings.Isha;
+                    prayerTimesContainer.style.display = "block"
+                }).catch(error => {
+                    console.error("Gagal mengambil jadwal sholat:", error);
+                    document.getElementById("locationDisplay").textContent = "Gagal memuat jadwal sholat."
+                })
+            }
+
+            function getLocation() {
+                navigator.geolocation ? navigator.geolocation.getCurrentPosition(position => {
+                    const lat = position.coords.latitude, long = position.coords.longitude;
+                    document.getElementById("locationDisplay").textContent = "Jadwal untuk lokasi Anda";
+                    getPrayerTimes(lat, long)
+                }, () => {
+                    document.getElementById("locationDisplay").textContent = "Izinkan akses lokasi untuk melihat jadwal sholat.";
+                    prayerTimesContainer.style.display = "block"
+                }) : document.getElementById("locationDisplay").textContent = "Browser tidak mendukung geolokasi."
+            }
+            getLocation();
+
+        });
     </script>
 </body>
 </html>
