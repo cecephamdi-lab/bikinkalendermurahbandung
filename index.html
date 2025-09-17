@@ -148,6 +148,7 @@
                 <button class="btn" id="goToGalleryManagementBtn">Update Galeri</button>
                 <button class="btn" id="goToUpdateHargaBtn">Update Harga Bahan</button>
                 <button class="btn" id="goToSettingUntungBtn">Setting Keuntungan</button>
+                <button class="btn" id="logoutBtn">Logout</button>
             </div>
         </div>
         
@@ -177,6 +178,7 @@
                 <hr style="border-color:#56708d;margin:40px 0;"><h2 style="margin-top:0;">Rekapan Biaya</h2><div style="overflow-x:auto;"><table class="rekap-table"><thead><tr><th>Proyek</th><th>Total Biaya</th><th>Telah Bayar</th><th>Sisa Utang</th><th>Status</th></tr></thead><tbody id="biayaProduksiTableBody"></tbody></table></div></div></div></div>
     </div>
     
+    <div id="loginModal" class="modal-overlay"><div class="login-box"><h2>Login Admin</h2><form id="loginForm"><div class="input-group"><input type="text" id="usernameInput" placeholder="Username" required></div><div class="input-group"><input type="password" id="passwordInput" placeholder="Password" required></div><div class="login-buttons"><button type="button" id="loginCancelBtn">Batal</button><button type="submit" id="loginSubmitBtn">Login</button></div></form></div></div>
     <div id="lightbox" class="modal-overlay hidden" onclick="this.classList.add('hidden')"><img id="lightboxImage" src="" alt="Tampilan diperbesar"></div>
 
     <script>
@@ -250,7 +252,9 @@
 
             // --- NAVIGASI DAN FUNGSI LAINNYA ---
             const pages = { welcome: document.getElementById("welcomeScreen"), pelangganDashboard: document.getElementById("pelangganDashboardPage"), gallery: document.getElementById("galleryPage"), adminDashboard: document.getElementById("adminDashboardPage"), calculator: document.getElementById("calculatorPage"), updateHarga: document.getElementById("updateHargaPage"), settingKeuntungan: document.getElementById("settingKeuntunganPage"), rekapan: document.getElementById("rekapanPage"), biayaProduksi: document.getElementById("biayaProduksiPage"), galleryManagement: document.getElementById("galleryManagementPage") };
-            
+            const loginModal = document.getElementById("loginModal");
+            const returnToDashboardBtn = document.getElementById('returnToDashboardBtn');
+
             let currentHistoryState = { page: "welcome" };
             history.replaceState(currentHistoryState, "", "#welcome");
 
@@ -287,6 +291,7 @@
                         pageToShow.classList.remove("hidden");
                         currentPage = pageToShow;
                         currentHistoryState = e.state;
+                        checkLoginState();
                     }
                 }
             });
@@ -296,14 +301,49 @@
                 "Backspace" === e.key && "INPUT" !== activeEl.tagName && "SELECT" !== activeEl.tagName && "TEXTAREA" !== activeEl.tagName && (e.preventDefault(), history.back())
             });
 
-            document.getElementById("adminBtn").addEventListener("click", () => {
-                userRole = "admin";
-                navigateTo({ page: "adminDashboard" });
+            function checkLoginState() {
+                if (sessionStorage.getItem('isAdminLoggedIn') === 'true') {
+                    returnToDashboardBtn.classList.remove('hidden');
+                } else {
+                    returnToDashboardBtn.classList.add('hidden');
+                }
+            }
+            
+            document.getElementById("adminBtn").addEventListener("click",()=>loginModal.classList.add("visible"));
+            document.getElementById("pelangganBtn").addEventListener("click",()=>navigateTo({page:"pelangganDashboard"}));
+            document.getElementById("loginCancelBtn").addEventListener("click",()=>loginModal.classList.remove("visible"));
+            
+            document.getElementById("loginForm").addEventListener("submit", async e => {
+                e.preventDefault();
+                const username = document.getElementById("usernameInput").value.toLowerCase();
+                const password = document.getElementById("passwordInput").value;
+                const loginBox = document.querySelector(".login-box");
+
+                // Ambil data user dari Google Sheets
+                try {
+                    const users = await fetchData('Users');
+                    const user = users.find(u => u.username === username && u.password === password);
+
+                    if (user) {
+                        sessionStorage.setItem('isAdminLoggedIn', 'true');
+                        loginModal.classList.remove("visible");
+                        document.getElementById("usernameInput").value = "";
+                        document.getElementById("passwordInput").value = "";
+                        checkLoginState();
+                        navigateTo({ page: "adminDashboard" });
+                    } else {
+                        loginBox.classList.add("shake");
+                        setTimeout(() => loginBox.classList.remove("shake"), 500);
+                        alert("Username atau password salah!");
+                    }
+                } catch (error) {
+                    alert("Gagal login. Periksa koneksi atau skrip Apps Script.");
+                    console.error(error);
+                }
             });
-            document.getElementById("pelangganBtn").addEventListener("click", () => {
-                userRole = "pelanggan";
-                navigateTo({ page: "pelangganDashboard" });
-            });
+            
+            document.getElementById('logoutBtn').addEventListener('click', () => { sessionStorage.removeItem('isAdminLoggedIn'); checkLoginState(); navigateTo({ page: 'welcome' }); });
+            document.getElementById('returnToDashboardBtn').addEventListener('click', () => navigateTo({ page: 'adminDashboard' }));
             document.getElementById('goToCalcPelangganBtn').addEventListener('click', () => { userRole = 'pelanggan'; document.getElementById('calculatorTitle').textContent = 'Kalkulator Harga Kalender'; document.getElementById('saveOrderBtn').style.display = 'none'; navigateTo({ page: "calculator", role: "pelanggan" }); });
             document.getElementById('goToGalleryBtn').addEventListener('click', () => { renderCustomerGallery(); navigateTo({ page: "gallery" }); });
             document.getElementById("goToCalcAdminBtn").addEventListener("click", () => { userRole = "admin"; document.getElementById("calculatorTitle").textContent = "Kalkulator Admin"; navigateTo({ page: "calculator", role: "admin" }) });
@@ -313,7 +353,7 @@
             document.getElementById("goToUpdateHargaBtn").addEventListener("click", () => { populateUpdateHargaForm(); navigateTo({ page: "updateHarga" }) });
             document.getElementById("goToSettingUntungBtn").addEventListener("click", () => { document.getElementById("profitPercentageInput").value = profitPercentage; navigateTo({ page: "settingKeuntungan" }) });
             document.querySelectorAll(".back-btn").forEach(btn => { btn.addEventListener("click", () => { history.back() }) });
-
+            checkLoginState();
             const formatRupiah = angka => new Intl.NumberFormat("id-ID", { style: "currency", currency: "IDR", minimumFractionDigits: 0 }).format(angka);
             
             // --- FUNGSI HALAMAN UPDATE HARGA ---
